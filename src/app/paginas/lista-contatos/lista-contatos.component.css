@@ -1,0 +1,14 @@
+.dx-textbox {
+  width: 100%;
+  margin: 40px 0;
+  font-family: 'Montserrat';
+}
+
+.adicionar-contato {
+  display: flex;
+  justify-content: center;
+}
+
+.adicionar-contato .dx-button {
+  min-width: 225px;
+}

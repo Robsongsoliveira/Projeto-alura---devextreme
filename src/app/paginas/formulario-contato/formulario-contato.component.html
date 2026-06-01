@@ -1,0 +1,95 @@
+<app-container>
+  <app-cabecalho
+    [bannerSrc]="'/assets/adicionar-contato.png'"
+    [titulo]="'Adicionar contato'">
+  </app-cabecalho>
+  <form [formGroup]="contatoForm" (ngSubmit)="salvarContato()">
+    <div class="imagem-contato">
+      <i class="material-icons">add</i>
+      <label for="avatar">Adicione a imagem do contato</label>
+      <dx-button
+        text="Escolher imagem"
+        icon="image"
+        stylingMode="outlined"
+        type="default"
+        (onClick)="avatarInput.click()">
+      </dx-button>
+      <input
+        #avatarInput
+        class="input-arquivo"
+        type="file"
+        accept="image/*"
+        id="avatar"
+        required
+        (change)="aoSelecionarArquivo($event)">
+    </div>
+    @if(contatoForm.get('avatar')?.value !== '') {
+      <figure>
+        <img [src]="contatoForm.get('avatar')?.value" alt="Avatar do contato">
+      </figure>
+    }
+    <label for="nome">Nome</label>
+    <dx-text-box
+      id="nome"
+      placeholder="Digite o nome do contato"
+      formControlName="nome">
+    </dx-text-box>
+    <app-mensagem-erro [control]="obterControle('nome')"></app-mensagem-erro>
+    <label for="telefone">Telefone</label>
+    <dx-text-box
+      id="telefone"
+      placeholder="Digite o telefone do contato"
+      mask="(00) 00000-0000"
+      formControlName="telefone">
+    </dx-text-box>
+    <app-mensagem-erro [control]="obterControle('telefone')"></app-mensagem-erro>
+    <label for="email">E-mail</label>
+    <dx-text-box
+      id="email"
+      mode="email"
+      placeholder="Digite o e-mail do contato"
+      formControlName="email">
+    </dx-text-box>
+    <app-mensagem-erro [control]="obterControle('email')"></app-mensagem-erro>
+    <app-separador></app-separador>
+    <label for="aniversario">Aniversário</label>
+    <dx-date-box
+      id="aniversario"
+      type="date"
+      displayFormat="dd/MM/yyyy"
+      placeholder="Data de nascimento"
+      formControlName="aniversario">
+    </dx-date-box>
+    <label for="redes">Redes sociais</label>
+    <div class="input-container">
+      <span class="span-http">http://</span>
+      <dx-text-box
+        id="redes"
+        mode="url"
+        placeholder="Adicione a URL da página"
+        formControlName="redes">
+      </dx-text-box>
+    </div>
+    <label for="observacoes">Observações</label>
+    <dx-text-area
+      id="observacoes"
+      placeholder="Coloque observações nesse espaço. Exemplo: “Instrutora da academia Nova Imagem, amiga da Júlia”."
+      formControlName="observacoes"
+      [height]="84">
+    </dx-text-area>
+    <section class="botoes">
+      <dx-button
+        text="Cancelar"
+        stylingMode="outlined"
+        type="default"
+        (onClick)="cancelar()">
+      </dx-button>
+      <dx-button
+        text="Salvar contato"
+        type="default"
+        [useSubmitBehavior]="true"
+        [disabled]="contatoForm.invalid">
+      </dx-button>
+    </section>
+  </form>
+</app-container>

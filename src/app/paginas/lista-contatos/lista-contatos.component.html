@@ -1,0 +1,37 @@
+<app-container>
+  <app-cabecalho
+    [telaInicial]="true"
+    [bannerSrc]="'assets/banner.png'"
+    [titulo]="'Organize, <span>conecte,</span> simplifique!'">
+  </app-cabecalho>
+
+  <dx-text-box
+    mode="search"
+    placeholder="Digite para buscar"
+    [(value)]="filtroPorTexto">
+  </dx-text-box>
+
+  <section class="adicionar-contato">
+    <dx-button
+      text="Adicionar contato"
+      icon="plus"
+      stylingMode="outlined"
+      type="default"
+      (onClick)="navegarParaFormulario()">
+    </dx-button>
+  </section>
+
+  @for (letra of alfabeto; track letra) {
+    <app-separador>
+      {{ letra }}
+    </app-separador>
+    @for (contato of filtrarContatosPorLetraInicial(letra); track contato.id) {
+      <app-contato
+        [nome]="contato.nome"
+        [telefone]="contato.telefone"
+        [id]="contato.id!"
+        [avatar]="contato.avatar">
+      </app-contato>
+    }
+  }
+</app-container>

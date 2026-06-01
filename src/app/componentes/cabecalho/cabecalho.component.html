@@ -1,0 +1,18 @@
+<header class="cabecalho">
+    <img src="/assets/logo.png" class="logo">
+    @if(!telaInicial) {
+      <div class="link">
+        <dx-button
+          text="Voltar"
+          icon="arrowleft"
+          stylingMode="text"
+          (onClick)="voltar()">
+        </dx-button>
+      </div>
+    }
+    <img [src]="bannerSrc" class="banner">
+    <h1
+      [ngClass]="telaInicial ? 'titulo' : 'titulo-form'"
+      [innerHTML]="titulo">
+    </h1>
+</header>
