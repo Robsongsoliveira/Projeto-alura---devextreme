@@ -7,6 +7,8 @@
 .adicionar-contato {
   display: flex;
   justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .adicionar-contato .dx-button {

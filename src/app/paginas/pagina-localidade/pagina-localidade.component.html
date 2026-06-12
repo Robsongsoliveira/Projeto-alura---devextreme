@@ -1,0 +1,42 @@
+<app-container>
+  <app-cabecalho
+    [bannerSrc]="'assets/banner-form.png'"
+    [titulo]="'Selecione uma <span>localidade</span>'">
+  </app-cabecalho>
+
+  <section class="conteudo">
+    <p>
+      Escolha um estado para carregar as cidades correspondentes pela API do IBGE.
+    </p>
+
+    <app-localidade
+      (localidadeSelecionada)="receberLocalidade($event)">
+    </app-localidade>
+
+    @if (localidade) {
+      <div class="resultado">
+        <h2>Localidade selecionada</h2>
+
+        <p>
+          <strong>Estado:</strong>
+          {{ localidade.estadoNome }} - {{ localidade.estadoSigla }}
+        </p>
+
+        <p>
+          <strong>ID do estado:</strong>
+          {{ localidade.estadoId }}
+        </p>
+
+        <p>
+          <strong>Cidade:</strong>
+          {{ localidade.cidadeNome }}
+        </p>
+
+        <p>
+          <strong>ID da cidade:</strong>
+          {{ localidade.cidadeId }}
+        </p>
+      </div>
+    }
+  </section>
+</app-container>

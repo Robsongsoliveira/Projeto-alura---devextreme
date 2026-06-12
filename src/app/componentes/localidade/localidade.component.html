@@ -1,0 +1,31 @@
+<section class="localidade">
+  <div class="campo">
+    <label>Estado</label>
+
+    <dx-select-box
+      [dataSource]="estados"
+      displayExpr="nome"
+      [searchEnabled]="true"
+      placeholder="Selecione um estado"
+      noDataText="Nenhum estado encontrado"
+      [disabled]="carregandoEstados"
+      [(value)]="estadoSelecionado"
+      (valueChange)="alterarEstado($event)">
+    </dx-select-box>
+  </div>
+
+  <div class="campo">
+    <label>Cidade</label>
+
+    <dx-select-box
+      [dataSource]="cidades"
+      displayExpr="nome"
+      [searchEnabled]="true"
+      placeholder="Selecione uma cidade"
+      noDataText="Nenhuma cidade encontrada"
+      [disabled]="!estadoSelecionado || carregandoCidades"
+      [(value)]="cidadeSelecionada"
+      (valueChange)="alterarCidade($event)">
+    </dx-select-box>
+  </div>
+</section>

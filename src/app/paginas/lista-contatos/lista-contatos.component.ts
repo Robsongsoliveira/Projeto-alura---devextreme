@@ -46,6 +46,10 @@ export class ListaContatosComponent implements OnInit{
     this.router.navigateByUrl('/formulario');
   }
 
+  navegarParaLocalidade() {
+    this.router.navigateByUrl('/localidade');
+  }
+
   ngOnInit() {
     this.contatoService.obterContatos().subscribe(listaContatos => {
       this.contatos = listaContatos;

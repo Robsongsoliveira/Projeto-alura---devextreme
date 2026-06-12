@@ -1,0 +1,23 @@
+.localidade {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.campo label {
+  font-weight: 700;
+  color: #2f2f2f;
+}
+
+@media (max-width: 640px) {
+  .localidade {
+    grid-template-columns: 1fr;
+  }
+}

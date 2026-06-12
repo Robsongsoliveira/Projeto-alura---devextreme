@@ -1,0 +1,18 @@
+.conteudo {
+  margin-top: 24px;
+}
+
+.conteudo p {
+  line-height: 1.5;
+}
+
+.resultado {
+  margin-top: 24px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f1f7ff;
+}
+
+.resultado h2 {
+  margin-top: 0;
+}
